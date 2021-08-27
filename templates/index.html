@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <div style="background-color:#00ffff"></div>
+	<style>
+	.upload-containter {
+	  width: 100%;
+	  height: 40vh;
+	  padding: 0px;
+	  border: 3px solid #aaaaaa;
+	  border-radius: 1vh;
+	}
+	#inputFile1 {
+	  width: 100%;
+	  height: 100%;
+	  opacity:0;
+	  z-index:5;
+	}
+	.guide {
+	  position:absolute;
+	  padding:5vh;
+	  width: 100%;
+	  height: 100%;
+	  z-index:-2;
+	}
+/*    .create:before{
+
+        display: block;
+        background: url('/Bdoctor.png') no-repeat;
+        width: 25px;
+        height: 25px;
+        float: left;
+    }*/
+	</style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script> -->
+</head>
+<body style="background-color:powderblue;">
+<div class="container">
+    <div class="header">
+        <h3 style="margin-top:5vh;" class="text-muted">Tải ảnh</h3>
+    </div>
+    <hr/>
+    <div>
+        <!-- <img src="/Bdoctor.png" alt="Chẩn đoán"> -->
+        <form action="upload" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-6">
+					<div class="upload-containter">
+						<div class="guide">
+							<p> Kéo thả ảnh từ máy tính vào khung này </p>
+							<p> Hoặc nhấp vào đây để chọn ảnh từ máy bạn</p>
+						</div>
+						<input type="file" name="file" id="inputFile1"><br/><br/>
+					</div>
+                    <input type="submit" value="Dự đoán">
+                   </button>
+                <a class="col-lg-6" href="history.html">Lịch sử khám</a>
+                </div>
+                <div class="col-lg-6">
+                    <img id="imagen"><br/>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    function init() {
+        var inputFile = document.getElementById('inputFile1');
+        var inputFile2 = document.getElementById('Dropbox');
+        inputFile.addEventListener('change', mostrarImagen, false);
+        inputFile2.addEventListener('change', mostrarImagen, false);
+    }
+    function mostrarImagen(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            var img = document.getElementById('imagen');
+            img.src = event.target.result;
+            img.width = 500;
+            img.height = 500;
+        }
+        reader.readAsDataURL(file);
+    }
+    window.addEventListener('load', init, false);
+</script>
+</html>

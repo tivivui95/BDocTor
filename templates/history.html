@@ -1,0 +1,184 @@
+<!-- {% extends 'base.html' %} {% block head %} -->
+...Loading
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+/>
+<link
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<link rel="stylesheet" href="../static/css/main.css" />
+<title>History Patients</title>
+<!-- {% endblock %} {% block body%} -->
+Loading..
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#"></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            My Account
+          </a>
+          <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+          <div
+            class="dropdown-menu dropdown-menu-right animate slideIn"
+            aria-labelledby="navbarDropdown"
+          >
+            <a class="dropdown-item" href="/history">History</a>
+            <a class="dropdown-item" href="/transaction">Transaction</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/signin">Sign out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Form Transaction -->
+<div class="container text-center">
+  <h1 class="mt-5 text-white font-weight-light">Patients history</h1>
+  <p class="lead text-white-50"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
+        <form method="POST">
+          <div class="form-group">
+            <label for="validate-text">Patient's ID</label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                name="idglobal"
+                id="validate-text"
+                placeholder="Enter ID Global"
+                required
+              />
+              <span class="input-group-addon danger"
+                ><span class="glyphicon glyphicon-remove"></span
+              ></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary col-xs-12">Submit</button
+          ><br /><br /><br />
+        </form>
+        <form method="POST">
+          <div class="form-group">
+            <label for="validate-text">Medical record ID</label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                name="idplatform"
+                id="validate-text"
+                placeholder="Enter ID Platform"
+                required
+              />
+              <span class="input-group-addon danger"
+                ><span class="glyphicon glyphicon-remove"></span
+              ></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary col-xs-12" disabled>
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <br /><br />
+
+  <!-- Transaction History Table -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body text-center">
+            <h2>Medical check History</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th><input type="checkbox" id="checkall" /></th>
+                  <th>Month</th>
+                  <th>ID</th>
+                  <th>Status</th>
+                  <th>Pressure</th>
+                  <th> BMI </th>
+                  <th>Doctor comment</th>
+                  <th>More detail</th>
+                </tr>
+              </thead>
+<!--               {% for data in datas %} -->
+              <tbody class="customtable">
+                <tr>
+                  <th>
+                    <label class="customcheckbox">
+                      <input type="checkbox" class="listCheckbox" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </th>
+                  <td>10th November</td>
+                  <td>1</td>
+                  <td>Blur_point</td>
+                  <td>192</td>
+                  <td>24.3</td>
+                  <td>Need to check more, keep healthy lifestyle</td>
+                  <td>
+                    <a
+                      href="#"
+                      data-placement="top"
+                      data-toggle="tooltip"
+                      title="Detail"
+                    >
+                      <button
+                        class="btn btn-danger btn-xs"
+                        data-title="Detail"
+                        data-toggle="modal"
+                        data-target="#delete"
+                      >
+                        <span class="glyphicon glyphicon-th-list"></span>
+                      </button>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+              <!-- {% endfor %} -->
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="../static/js/main.js"></script>
+  <!-- {% endblock %} -->
+</div>
